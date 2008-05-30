@@ -10,14 +10,13 @@ describe "ModelFactory" do
   for model in %w( Model User )
     
     before(:each) do
-      class_definition = <<-END
+      eval <<-END
         class #{model}
           def self.create(h={}) 
             new
           end
         end
       END
-      eval class_definition
       @klazz = eval(model)
     end
   

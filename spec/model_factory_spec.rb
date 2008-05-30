@@ -8,7 +8,7 @@ describe "ModelFactory" do
   end
   
   before(:each) do
-    MODELS.each do |name, hash|
+    MODEL_FACTORY_MODELS.each do |name, hash|
       model = name.to_s.camelize.singularize
       eval <<-END
         class #{model}
@@ -21,7 +21,7 @@ describe "ModelFactory" do
     end
   end
   
-  MODELS.each do |name, hash|
+  MODEL_FACTORY_MODELS.each do |name, hash|
     model = name.to_s.camelize.singularize
     describe "create_#{model.downcase}" do
       

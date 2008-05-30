@@ -2,7 +2,7 @@ require 'rubygems'
 require 'spec'
 require 'active_support'
 
-MODELS = {
+MODEL_FACTORY_MODELS = {
   :model => { :name => "Host" },
   :user  => {}
 } unless defined?(MODELS)

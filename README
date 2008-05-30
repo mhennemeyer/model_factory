@@ -21,10 +21,10 @@ specified associated model object from the configuration hash.
 == Usage
 
   ModelFactory reads the required configuration information from a 
-  MODELS constant that is a hash you have to specify before the require statements in your
+  MODEL_FACTORY_MODELS constant that is a hash you have to specify before the require statement in your
   helper file:
   
-  MODELS = {
+  MODEL_FACTORY_MODELS = {
     :user => {
       :attribute1 => 'value1',
       :attribute2 => 'value2',
@@ -34,6 +34,8 @@ specified associated model object from the configuration hash.
     }
   }
   
+  require 'model_factory'
+  
   Now you can use the ModelFactory methods:
   
   create_user   # => #User attribute1=value1,  attribute2=value2
@@ -41,7 +43,7 @@ specified associated model object from the configuration hash.
   create_model  # => #Model attribute=value
   
   create_model :user_id => 1 # => #Model attribute=value, user_id=1
-  This will create a user object from the MODELS hash if there is no user with id=1 in the database.
+  This will create a user object from the MODEL_FACTORY_MODELS hash if there is no user with id=1 in the database.
   
   
   

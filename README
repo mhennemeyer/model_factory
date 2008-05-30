@@ -1,0 +1,53 @@
+= ModelFactory
+
+by Matthias Hennemeyer <mhennemeyer@gmail.com>
+
+== Introduction
+
+Create objects with ease:
+
+  create_user, create_model :attribute => 'value', ...
+
+ModelFactory is available as a Rails plugin.
+It provides a way to construct model objects from a configuration hash.
+
+The special thing about ModelFactory is that it will also create belongs_to associates.
+
+ModelFactory will first try to find the specified associated model object by id.
+If the attempt to find it raises an not found error it will try to construct the 
+specified associated model object from the configuration hash.
+
+
+== Usage
+
+  ModelFactory reads the required configuration information from a 
+  MODELS constant that is a hash you have to specify before the require statements in your
+  helper file:
+  
+  MODELS = {
+    :user => {
+      :attribute1 => 'value1',
+      :attribute2 => 'value2',
+    },
+    :another_model => {
+      :attribute => 'value'
+    }
+  }
+  
+  Now you can use the ModelFactory methods:
+  
+  create_user   # => #User attribute1=value1,  attribute2=value2
+  
+  create_model  # => #Model attribute=value
+  
+  create_model :user_id => 1 # => #Model attribute=value, user_id=1
+  This will create a user object from the MODELS hash if there is no user with id=1 in the database.
+  
+  
+  
+== INSTALL:
+
+  $ ruby script/plugin install git://github.com/mhennemeyer/model_factory.git
+
+
+Copyright (c) 2008 Matthias Hennemeyer, released under the MIT license

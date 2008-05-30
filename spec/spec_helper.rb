@@ -5,6 +5,6 @@ require 'active_support'
 MODEL_FACTORY_MODELS = {
   :model => { :name => "Host" },
   :user  => {}
-} unless defined?(MODELS)
+} unless defined?(MODEL_FACTORY_MODELS)
 
 require File.dirname(__FILE__) + '/../lib/model_factory.rb'

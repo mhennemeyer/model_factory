@@ -80,7 +80,7 @@ describe "ModelFactory" do
       class RecordNotFound < StandardError;end
     end
     obj = User.new
-    User.should_receive(:find).with(1).and_raise(ActiveRecord::RecordNotFound.new "Couldn't find User with id 1")
+    User.should_receive(:find).with(1).and_raise(ActiveRecord::RecordNotFound.new("Couldn't find User with id 1"))
     User.should_receive(:new).and_return(obj)
     create_model :user_id => 1
   end

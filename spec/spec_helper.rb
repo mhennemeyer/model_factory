@@ -3,7 +3,7 @@ require 'spec'
 require 'active_support'
 
 MODELS = {
-  :model => {},
+  :model => { :name => "Host" },
   :user  => {}
 } unless defined?(MODELS)
 

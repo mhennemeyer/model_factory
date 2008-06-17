@@ -5,15 +5,15 @@ if defined?(MODEL_FACTORY_MODELS)
         klazz = eval("#{class_name_sym.to_s.camelize.singularize}")
         attrs = MODEL_FACTORY_MODELS[class_name_sym].merge(attributeshash)
         bt_assocs = attrs.select {|k,v| (k.to_s =~ /.*_id$/) && (v != nil) }.map {|k,v| [k.to_s.sub(/_id/, '').camelize, v]}
-        begin
-          bt_assocs.each do |k,v|
+        bt_assocs.each do |k,v|
+          begin
             klass = eval(k)
             klass.find(v)
+          rescue ActiveRecord::RecordNotFound => e
+            e.to_s =~ /find\s+(.*)\s+with/
+            klass = $1.tableize.singularize.to_sym
+            create(klass)
           end
-        rescue ActiveRecord::RecordNotFound => e
-          e.to_s =~ /find\s+(.*)\s+with/
-          klass = $1.tableize.singularize.to_sym
-          create(klass)
         end
         record = klazz.new(attrs)
         record.save

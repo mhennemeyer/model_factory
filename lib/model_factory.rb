@@ -1,6 +1,17 @@
 if defined?(MODEL_FACTORY_MODELS)
   class ModelFactory
     class << self
+      
+      def attachment(path_to_existing_file)
+        tempfile = ActionController::UploadedTempfile.new("dumb")
+        tempfile.puts File.open(path_to_existing_file, "r").readlines
+        tempfile.content_type = "image/png"
+        tempfile.original_path = path_to_existing_file
+        tempfile.close
+        tempfile.open
+        tempfile
+      end
+      
       def create(class_name_sym, attributeshash={})
         klazz = eval("#{class_name_sym.to_s.camelize.singularize}")
         attrs = MODEL_FACTORY_MODELS[class_name_sym].merge(attributeshash)

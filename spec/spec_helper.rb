@@ -5,7 +5,7 @@ require 'active_support'
 MODEL_FACTORY_MODELS = {
   :model => { :name => "Horst" },
   :user  => {},
-  :model_with_attachment => {}
+  :attachment_model => {}
 } unless defined?(MODEL_FACTORY_MODELS)
 
 require File.dirname(__FILE__) + '/../lib/model_factory.rb'

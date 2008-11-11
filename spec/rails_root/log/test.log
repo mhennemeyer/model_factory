@@ -1,0 +1,68 @@
+  [4;36;1mSQL (0.000418)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000428)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000424)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000369)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.004111)[0m   [0;1mCREATE TABLE "attachment_models" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_id" integer, "size" integer, "width" integer, "height" integer, "content_type" varchar(255), "filename" varchar(255), "thumbnail" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.000796)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000714)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000713)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000719)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000716)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000717)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000749)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000732)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000719)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAttachmentModel Create (0.000653)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 228816, NULL, '2008-11-11 08:49:31', 143, 'test_image.png', NULL, 384, '2008-11-11 08:49:31')[0m
+  [4;36;1mAttachmentModel Load (0.000285)[0m   [0;1mSELECT * FROM "attachment_models" WHERE ("attachment_models"."thumbnail" = 'large' AND "attachment_models"."parent_id" = 1) LIMIT 1[0m
+  [4;35;1mAttachmentModel Create (0.000293)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 59332, 'large', '2008-11-11 08:49:31', 36, 'test_image_large.png', 1, 96, '2008-11-11 08:49:31')[0m
+  [4;36;1mAttachmentModel Load (0.000300)[0m   [0;1mSELECT * FROM "attachment_models" WHERE ("attachment_models"."thumbnail" = 'medium' AND "attachment_models"."parent_id" = 1) LIMIT 1[0m
+  [4;35;1mAttachmentModel Create (0.000310)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 59332, 'medium', '2008-11-11 08:49:31', 24, 'test_image_medium.png', 1, 64, '2008-11-11 08:49:31')[0m
+  [4;36;1mAttachmentModel Load (0.000284)[0m   [0;1mSELECT * FROM "attachment_models" WHERE ("attachment_models"."thumbnail" = 'small' AND "attachment_models"."parent_id" = 1) LIMIT 1[0m
+  [4;35;1mAttachmentModel Create (0.000295)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 59332, 'small', '2008-11-11 08:49:31', 18, 'test_image_small.png', 1, 48, '2008-11-11 08:49:31')[0m
+  [4;36;1mSQL (0.000714)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mAttachmentModel Create (0.000790)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 228816, NULL, '2008-11-11 08:50:02', 143, 'test_image.png', NULL, 384, '2008-11-11 08:50:02')[0m
+  [4;36;1mAttachmentModel Load (0.000291)[0m   [0;1mSELECT * FROM "attachment_models" WHERE ("attachment_models"."thumbnail" = 'large' AND "attachment_models"."parent_id" = 5) LIMIT 1[0m
+  [4;35;1mAttachmentModel Create (0.000292)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 59332, 'large', '2008-11-11 08:50:02', 36, 'test_image_large.png', 5, 96, '2008-11-11 08:50:02')[0m
+  [4;36;1mAttachmentModel Load (0.000278)[0m   [0;1mSELECT * FROM "attachment_models" WHERE ("attachment_models"."thumbnail" = 'medium' AND "attachment_models"."parent_id" = 5) LIMIT 1[0m
+  [4;35;1mAttachmentModel Create (0.000292)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 59332, 'medium', '2008-11-11 08:50:02', 24, 'test_image_medium.png', 5, 64, '2008-11-11 08:50:02')[0m
+  [4;36;1mAttachmentModel Load (0.000297)[0m   [0;1mSELECT * FROM "attachment_models" WHERE ("attachment_models"."thumbnail" = 'small' AND "attachment_models"."parent_id" = 5) LIMIT 1[0m
+  [4;35;1mAttachmentModel Create (0.000293)[0m   [0mINSERT INTO "attachment_models" ("content_type", "size", "thumbnail", "updated_at", "height", "filename", "parent_id", "width", "created_at") VALUES('image/png', 59332, 'small', '2008-11-11 08:50:02', 18, 'test_image_small.png', 5, 48, '2008-11-11 08:50:02')[0m

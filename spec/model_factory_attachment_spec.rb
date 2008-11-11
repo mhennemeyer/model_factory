@@ -2,7 +2,8 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe ModelFactory, "attachments" do
   before(:all) do
-    class ModelWithAttachment < ActiveRecord::Base
+    require File.dirname(__FILE__) + '/rails_root/spec/spec_helper'
+    class AttachmentModel < ActiveRecord::Base
       has_attachment  :content_type => :image,
                       :storage => :file_system, 
                       :max_size => 1000.kilobytes, 
@@ -14,8 +15,25 @@ describe ModelFactory, "attachments" do
 
       validates_as_attachment
     end
+    unless AttachmentModel.table_exists?
+      ActiveRecord::Migration.create_table :attachment_models do |t|
+        t.integer :parent_id
+        t.integer :size
+        t.integer :width
+        t.integer :height
+        t.string :content_type
+        t.string :filename
+        t.string :thumbnail
+        t.timestamps
+      end
+    end 
   end
+  
+  def path_to_existing_image
+    File.dirname(__FILE__) + '/tmp/test_image.png'
+  end
+  
   it "should satisfy validates_as_attachment" do
-    create_model_with_attachment!(:uploaded_data => ModelFactory.attachment(real_path, temp_dir))
+    create_attachment_model!(:uploaded_data => ModelFactory.attachment(path_to_existing_image))
   end
 end

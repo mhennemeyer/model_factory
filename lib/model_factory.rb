@@ -18,7 +18,7 @@ if defined?(MODEL_FACTORY_MODELS)
         attrs = MODEL_FACTORY_MODELS[class_name_sym].merge(attributeshash)
         if (path = attrs[:uploaded_data])
           raise "#{klazz_name} seems not to be attachable" unless klazz.respond_to?(:attachment_options)
-          klazz.attachment_options[:path_prefix] = "/public/attachment_models"
+          klazz.attachment_options[:path_prefix] = "/tmp/model_factory_attachments"
           attrs[:uploaded_data] = attachment(path)
         end
         bt_assocs = attrs.select {|k,v| (k.to_s =~ /.*_id$/) && (v != nil) }.map {|k,v| [k.to_s.sub(/_id/, '').camelize, v]}

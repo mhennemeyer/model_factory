@@ -2,6 +2,7 @@ require File.dirname(__FILE__) + '/spec_helper'
 
 describe ModelFactory, "attachments" do
   before(:all) do
+    AttachmentModel.destroy_all if defined?(AttachmentModel)
     require File.dirname(__FILE__) + '/rails_root/spec/spec_helper'
     class AttachmentModel < ActiveRecord::Base
       has_attachment  :content_type => :image,
@@ -34,6 +35,24 @@ describe ModelFactory, "attachments" do
   end
   
   it "should satisfy validates_as_attachment" do
-    create_attachment_model!(:uploaded_data => ModelFactory.attachment(path_to_existing_image))
+    create_attachment_model!(:uploaded_data => path_to_existing_image)
+  end
+  
+  describe "generates thumbnails" do
+    
+    before(:all) do
+      create_attachment_model!(:uploaded_data => path_to_existing_image)
+      @thumbnails = AttachmentModel.all.select(&:thumbnail)
+    end
+    
+    it "should generate three thumbnails" do
+      @thumbnails.size.should eql(3)
+    end
+    
+    it "should generate small, medium and large thumbnails" do
+      %w(small medium large).each do |size|
+        (thumbnail = @thumbnails.detect {|t| t.thumbnail == size}).should_not be_nil
+      end
+    end
   end
 end
